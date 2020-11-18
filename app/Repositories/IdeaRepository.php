@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Task;
+use App\Idea;
 
-class TaskRepository
+class IdeaRepository
 {
     /**
      * Get all of the tasks for a given user.
@@ -15,8 +15,8 @@ class TaskRepository
      */
     public function forUser(User $user)
     {
-        return Task::where('user_id', $user->id)
-            ->orderBy('created_at', 'asc')
+        return Idea::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
             ->get();
     }
 }

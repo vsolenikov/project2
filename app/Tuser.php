@@ -3,9 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App;
 
-class Task extends Model
+class Tuser extends Model
 {
     /**
      * Массово присваиваемые атрибуты.
@@ -27,11 +26,9 @@ class Task extends Model
     }
 
 
-}/*
-$user = App\User::find(1);
-*/
+}
 $user = App\User::find(1);
 
-foreach ($user->tasks as $task) {
-    echo $task->name, mail, phone, idea;
+foreach ($user->ideas as $idea) {
+    // echo $idea->name;
 }

@@ -19,10 +19,13 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/tasks', 'TaskController@index');
-Route::post('/task', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
-Route::post('task/{task}', 'TaskController@update');
+Route::get('/ideas'.'IdeaController@welcome');
+Route::post('/idea'.'IdeaController@store1');
+Route::get('/ideas', 'IdeaController@index');
+Route::post('/idea', 'IdeaController@store');
+//Route::update('/idea/{idea}', 'IdeaController@update');
+Route::delete('/idea/{idea}', 'IdeaController@destroy');
+Route::post('idea/{idea}', 'IdeaController@update');
 
 // Маршруты аутентификации...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -32,5 +35,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 // Маршруты регистрации...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
+
 
 

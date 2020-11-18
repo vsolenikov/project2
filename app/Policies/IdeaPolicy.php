@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class TaskPolicy
+class IdeaPolicy
 {
     use HandlesAuthorization;
 
@@ -15,8 +15,8 @@ class TaskPolicy
      * @param  Task  $task
      * @return bool
      */
-    public function destroy(User $user, Task $task)
+    public function destroy(User $user, Idea $idea)
     {
-        return $user->id === $task->user_id;
+        return $user->id === $idea->user_id;
     }
 }

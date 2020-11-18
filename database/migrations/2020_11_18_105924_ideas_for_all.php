@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTasksAbout extends Migration
+class IdeasForAll extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,8 @@ class CreateTasksAbout extends Migration
      */
     public function up()
     {
-        Schema::create('apptask', function (Blueprint $table) {
-            $table->increments('id');
-
-		$table->string('name');
-		$table->string('mail');
-		$table->string('phone');
-		$table->string('idea');
-            $table->timestamps();
+        Schema::table('ideas', function (Blueprint $table) {
+            $table->string('statuses')->default('Waiting for publication');
         });
     }
 
@@ -30,6 +24,8 @@ class CreateTasksAbout extends Migration
      */
     public function down()
     {
-        Schema::drop('apptask');
+        Schema::table('ideas', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -11,9 +11,9 @@ class User extends Authenticatable
     /**
      * Получить все задачи пользователя.
      */
-    public function tasks()
+    public function ideas()
     {
-        return $this->hasMany(Task::class);
+        return $this->hasMany(Idea::class);
     }
     /**
      * The attributes that are mass assignable.

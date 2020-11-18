@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         //
-        $router->model('task', 'App\Task');
+        $router->model('idea', 'App\Idea');
         parent::boot($router);
     }
 
@@ -45,14 +45,23 @@ class RouteServiceProvider extends ServiceProvider
      * @param  Task  $task
      * @return Response
      */
-  /*  public function destroy(Request $request, Task $task)
+    public function destroy(Request $request, Idea $idea)
     {
-        $this->authorize('destroy', $task);
+        $this->authorize('destroy', $idea);
 
-        $task->delete();
+        $idea->delete();
 
-        return redirect('/tasks');
-    }*/
+        return redirect('/ideas');
+    }
+
+    public function update(Request $request, Idea $idea)
+    {
+        $this->authorize('update', $idea);
+
+        $idea->update();
+
+        return redirect('/ideas');
+    }
 
     public function map(Router $router)
     {

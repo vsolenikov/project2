@@ -12,30 +12,30 @@
 
                             <!-- New Task Form -->
 
-                    <form action="" method="POST" class="form-horizontal">
-                        {{ csrf_field() }}
+                    <form action="{{ url('idea') }}" method="POST" class="form-horizontal">
+                    {{ csrf_field() }}
 
                                 <!-- Task Name -->
                         <div class="form-group">
                             <label for="task" class="col-sm-3 control-label">Your name</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="">
+                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('idea') }}">
                             </div>
 <br><br>
 			    <label for="task" class="col-sm-3 control-label">Email</label>
 			    <div class="col-sm-6">
-				<input type="text" name="mail" id="task-mail" class="form-control" value="">
+				<input type="text" name="mail" id="task-mail" class="form-control" value="{{ old('idea') }}">
        		            </div>
 <br><br>
 			    <label for="task" class="col-sm-3 control-label">Telephone</label>
 <div class="col-sm-6">
-   <input type="text" name="phone" id="task-phone" class="form-control" value="">
+   <input type="text" name="phone" id="task-phone" class="form-control" value="{{ old('idea') }}">
 </div>
 <br><br>
 <label for="task" class="col-sm-3 control-label">Your idea</label>
 <div class="col-sm-6">
-	<textarea name="idea" id="task-idea" class="form-control" value=""></textarea>
+	<textarea name="idea" id="task-idea" class="form-control" value="{{ old('idea') }}"></textarea>
 </div>
 </div>
 
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Current Tasks -->
-            
+
                 <div class="panel panel-default" style="width:180% !important; margin-left:-35%;">
                     <div class="panel-heading">
                         Our Ideas
@@ -69,7 +69,11 @@
 			    
                             </thead>
                             <tbody>
-                            
+
+
+
+
+
                                 <tr>
                                     <td class="table-text">
                                         <div>aaa</div>
@@ -87,31 +91,14 @@
 						<div>ddd</div>
 					</td>
                                     <!-- Task Delete Button -->
-                                    <td>
-                                        <form action="" method="POST">
-                                            {{csrf_field()}}
-                                            {{method_field('UPDATE')}}
 
-                                            <button type="submit" id="" class="btn btn-danger" style="background:green !important;">
-                                                <i></i>^ Confirm
-                                            </button>
-
-
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" id="" class="btn btn-danger">
-                                                <i class="fa fa-btn fa-trash"></i>Decline
-                                            </button>
-
-                                        </form>
-                                    </td>
                                 </tr>
-                            
+
                             </tbody>
                         </table>
                     </div>
                 </div>
-            
+
         </div>
     </div>
 
