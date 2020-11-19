@@ -76,7 +76,7 @@
 
                                 <tr>
                                     <td class="table-text">
-                                        <div>aaa</div>
+                                        <div>aaa </div>
                                         </td>
 					<td class="table-text">
 						<div>bbb</div>

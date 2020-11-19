@@ -2,53 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Idea;
 use App\Repositories\IdeaRepository;
-use Resources;
 
-class IdeaController extends Controller
+class ForAllController extends Controller
 {
     protected $ideas;
 
-    /**
-     * Создание нового экземпляра контроллера.
-     *
-     * @return void
-     */
-
-    public function __construct(IdeaRepository $ideas)
-    {
-        $this->middleware('auth');
-
-        $this->ideas = $ideas;
-    }
-    /**
-     * Отображение списка всех задач пользователя.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    /**
-     * Показать список всех задач пользователя.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-
-    public function hell()
-    {
-        return view('welcome', [
-            'a' => 'Hello',
-        ]);
-    }
     public function index(Request $request)
     {
-
-        return view('ideas.index', [
+        return view('ideas.welcome', [
             'ideas' => $this->ideas->forUser($request->user()),
-            'a' => 'Hello',
         ]);
     }
 
@@ -70,16 +37,16 @@ class IdeaController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-		'mail' => 'required|max:255',
-		'phone' => 'required|max:15',
-		'idea' => 'required|max:1000',
+            'mail' => 'required|max:255',
+            'phone' => 'required|max:15',
+            'idea' => 'required|max:1000',
         ]);
 
         $request->user()->ideas()->create([
             'name' => $request->name,
-		'mail' => $request->mail,
-		'phone' => $request->phone,
-		'idea' => $request->idea,
+            'mail' => $request->mail,
+            'phone' => $request->phone,
+            'idea' => $request->idea,
         ]);
         return redirect('/ideas');
     }

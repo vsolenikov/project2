@@ -21,9 +21,9 @@ class IdeaRepository
             ->get();
     }
 
-    public function forAll(Idea $status)
+    public function forAll(Idea $ideas)
     {
-        return Idea::where('status', $status='На рассмотрении')
+        return Idea::where('statuses', $statuses='На рассмотрении')
             ->orderBy('created_at', 'desc')
             ->get();
     }

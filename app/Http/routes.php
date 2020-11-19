@@ -18,9 +18,8 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-
-Route::get('/ideas'.'IdeaController@welcome');
-Route::post('/idea'.'IdeaController@store1');
+Route::post('/','IdeaController@hell');
+Route::get('/','IdeaController@hell');
 Route::get('/ideas', 'IdeaController@index');
 Route::post('/idea', 'IdeaController@store');
 //Route::update('/idea/{idea}', 'IdeaController@update');

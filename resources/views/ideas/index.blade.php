@@ -64,10 +64,10 @@
                             <thead>
                             <th>Name</th>
                             <th>Email</th>
-			    <th>Telephone</th>
-			    <th>Idea</th>
+                            <th>Telephone</th>
+			                <th>Idea</th>
                             <th>Status</th>
-			    <th>Created</th>
+			                <th>Created</th>
 			    
                             </thead>
                             <tbody>
@@ -75,16 +75,16 @@
                                 <tr>
                                     <td class="table-text">
                                         <div>{{ $idea->name }}</div>
-                                        </td>
-					<td class="table-text">
-						<div>{{ $idea->mail }}</div>
-					</td>
-					<td class="table-text">
-						<div>{{ $idea->phone }}</div>
-					</td>
-					<td class="table-text">
-						<div><textarea readonly="readonly" style="width:100%; border:0;background-color:transparent;readonly:true !important">{{ $idea->idea }}</textarea></div>
-					</td>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->mail }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->phone }}</div>
+                                    </td>
+				                	<td class="table-text">
+					                	<div><textarea readonly="readonly" style="width:100%; border:0;background-color:transparent;readonly:true !important">{{ $idea->idea }}</textarea></div>
+				                	</td>
                                     <td class="table-text">
                                         <div>{{ $idea->statuses }}</div>
                                     </td>
