@@ -69,31 +69,30 @@
 			    
                             </thead>
                             <tbody>
-
-
-
-
-
+                            @foreach ($ideas as $idea)
                                 <tr>
                                     <td class="table-text">
-                                        <div>aaa </div>
-                                        </td>
-					<td class="table-text">
-						<div>bbb</div>
-					</td>
-					<td class="table-text">
-						<div>vvv</div>
-					</td>
-					<td class="table-text">
-						<div><textarea readonly="readonly" style="width:100%; border:0;background-color:transparent;readonly:true !important">ggg</textarea></div>
-					</td>
-					<td class="table-text">
-						<div>ddd</div>
-					</td>
+                                        <div>{{ $idea->name }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->mail }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->phone }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div><textarea readonly="readonly" style="width:100%; border:0;background-color:transparent;readonly:true !important">{{ $idea->idea }}</textarea></div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->statuses }}</div>
+                                    </td>
+                                    <td class="table-text">
+                                        <div>{{ $idea->created_at}}</div>
+                                    </td>
                                     <!-- Task Delete Button -->
 
                                 </tr>
-
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

@@ -17,14 +17,19 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-Route::post('/','IdeaController@hell');
-Route::get('/','IdeaController@hell');
+//Route::get('/idea/{id}/moderate','IdeaController@moderate')->middleware(['auth']);
+//Route::get('/idea/{$id}/public/{$status}','IdeaController@UpdateStatus')->middleware(['auth']);
+//Route::post('/idea/{$id}/public/{$status}','IdeaController@store');
+
+
+
+Route::get('/ideas', 'IdeaController@UpdateStatus');
+Route::post('/ideas/{id}','IdeaController@UpdateStatus');
+
 Route::get('/ideas', 'IdeaController@index');
-Route::post('/idea', 'IdeaController@store');
-//Route::update('/idea/{idea}', 'IdeaController@update');
+Route::post('/idea', 'IdeaController@store')->middleware(['auth']);
 Route::delete('/idea/{idea}', 'IdeaController@destroy');
-Route::post('idea/{idea}', 'IdeaController@update');
+
 
 // Маршруты аутентификации...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

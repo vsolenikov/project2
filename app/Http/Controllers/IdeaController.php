@@ -20,8 +20,6 @@ class IdeaController extends Controller
 
     public function __construct(IdeaRepository $ideas)
     {
-        $this->middleware('auth');
-
         $this->ideas = $ideas;
     }
     /**
@@ -37,18 +35,23 @@ class IdeaController extends Controller
      * @return Response
      */
 
-    public function hell()
+    public function UpdateStatus($id, $statuses, $idea, Request $request)
     {
-        return view('welcome', [
-            'a' => 'Hello',
-        ]);
+        $this->authorize('UpdateStatus', $idea);
+
+        DB::table('ideas')
+            ->where('id', $id)
+            ->update([$statuses => 'public']);
+
+        return redirect('/ideas');
     }
+
+
     public function index(Request $request)
     {
-
         return view('ideas.index', [
             'ideas' => $this->ideas->forUser($request->user()),
-            'a' => 'Hello',
+
         ]);
     }
 
@@ -83,23 +86,7 @@ class IdeaController extends Controller
         ]);
         return redirect('/ideas');
     }
-    public function store1(Request $request)
-    {
-        $this->validate($request, [
-            'name' => 'required|max:255',
-            'mail' => 'required|max:255',
-            'phone' => 'required|max:15',
-            'idea' => 'required|max:1000',
-        ]);
 
-        $request->all([
-            'name' => $request->name,
-            'mail' => $request->mail,
-            'phone' => $request->phone,
-            'idea' => $request->idea,
-        ]);
-        return redirect('/ideas');
-    }
 
 
     public function destroy(Request $request, Idea $idea)
