@@ -17,26 +17,21 @@ Route::get('/', function () {
 
 Route::auth();
 
-//Route::get('/idea/{id}/moderate','IdeaController@moderate')->middleware(['auth']);
-//Route::get('/idea/{$id}/public/{$status}','IdeaController@UpdateStatus')->middleware(['auth']);
-//Route::post('/idea/{$id}/public/{$status}','IdeaController@store');
+Route::get('/ideas', 'IdeaController@UpdateStatus')/*middleware(['auth'])*/;
+Route::post('/idea/{id}/{statuses}','IdeaController@UpdateStatus');
 
-
-
-Route::get('/ideas', 'IdeaController@UpdateStatus');
-Route::post('/ideas/{id}','IdeaController@UpdateStatus');
 
 Route::get('/ideas', 'IdeaController@index');
-Route::post('/idea', 'IdeaController@store')->middleware(['auth']);
+Route::post('/idea', 'IdeaController@store');
 Route::delete('/idea/{idea}', 'IdeaController@destroy');
 
 
-// Маршруты аутентификации...
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-// Маршруты регистрации...
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 

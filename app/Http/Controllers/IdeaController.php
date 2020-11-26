@@ -8,12 +8,14 @@ use App\Http\Controllers\Controller;
 use App\Repositories\IdeaRepository;
 use Resources;
 
+
+
 class IdeaController extends Controller
 {
     protected $ideas;
 
     /**
-     * Создание нового экземпляра контроллера.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      *
      * @return void
      */
@@ -23,26 +25,21 @@ class IdeaController extends Controller
         $this->ideas = $ideas;
     }
     /**
-     * Отображение списка всех задач пользователя.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      *
      * @param  Request  $request
      * @return Response
      */
     /**
-     * Показать список всех задач пользователя.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      *
      * @param  Request  $request
      * @return Response
      */
 
-    public function UpdateStatus($id, $statuses, $idea, Request $request)
+    public function UpdateStatus($id, Request $request)
     {
-        $this->authorize('UpdateStatus', $idea);
-
-        DB::table('ideas')
-            ->where('id', $id)
-            ->update([$statuses => 'public']);
-
+        App\Idea::find($id)->update(['statuses' => 'Public']);
         return redirect('/ideas');
     }
 
@@ -51,18 +48,17 @@ class IdeaController extends Controller
     {
         return view('ideas.index', [
             'ideas' => $this->ideas->forUser($request->user()),
-
         ]);
     }
 
     public function welcome(Request $request)
     {
         return view('ideas.welcome', [
-            'ideas' => $this->ideas->forAll($request->status()),
+            'ideas' => $this->ideas->forQuest($request->status()),
         ]);
     }
     /**
-     * Создание новой задачи.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ.
      *
      * @param  Request  $request
      * @return Response
@@ -98,12 +94,4 @@ class IdeaController extends Controller
         return redirect('/ideas');
     }
 
-    public function update(Request $request, Idea $idea)
-    {
-        $this->authorize('update', $idea);
-
-        $idea->update();
-
-        return redirect('/ideas');
-    }
 }

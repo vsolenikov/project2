@@ -8,28 +8,28 @@ use App;
 class Idea extends Model
 {
     /**
-     * Массово присваиваемые атрибуты.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      *
      * @var array
      */
-    protected $fillable = ['name','mail','phone','idea'];
+    protected $fillable = ['name','mail','phone','idea', 'statuses'];
 
+    protected $table = "ideas";
 
     protected $casts = [
         'user_id' => 'int',
     ];
     /**
-     * Получить пользователя - владельца данной задачи
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ - пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
      */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-
 }
 $user = App\User::find(1);
 
 foreach ($user->ideas as $idea) {
-   // echo $task->name;
+    //echo $idea->name;
 }
