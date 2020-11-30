@@ -14,7 +14,7 @@ class Idea extends Model
      */
     protected $fillable = ['name','mail','phone','idea', 'statuses'];
 
-    protected $table = "ideas";
+
 
     protected $casts = [
         'user_id' => 'int',
@@ -25,6 +25,11 @@ class Idea extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function quest()
+    {
+        return$this->belongsTo(User::class);
     }
 
 }

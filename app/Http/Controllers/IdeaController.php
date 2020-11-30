@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\IdeaRepository;
 use Resources;
+use App\Idea;
+
+
 
 
 
@@ -37,9 +40,9 @@ class IdeaController extends Controller
      * @return Response
      */
 
-    public function UpdateStatus($id, Request $request)
+    public function Update($id, Request $request)
     {
-        App\Idea::find($id)->update(['statuses' => 'Public']);
+        Idea::find($id)->update(['statuses' => 'Public']);
         return redirect('/ideas');
     }
 
@@ -49,6 +52,7 @@ class IdeaController extends Controller
         return view('ideas.index', [
             'ideas' => $this->ideas->forUser($request->user()),
         ]);
+
     }
 
     public function welcome(Request $request)

@@ -4,12 +4,13 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
-    // Другие Eloquent свойства...
+    // пїЅпїЅпїЅпїЅпїЅпїЅ Eloquent пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ...
 
     /**
-     * Получить все задачи пользователя.
+     * пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
      */
     public function ideas()
     {

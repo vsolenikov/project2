@@ -91,18 +91,19 @@
 					<td class="table-text">
 						<div>{{ $idea->created_at}}</div>
 					</td>
-                                    <!-- Idea Delete Button -->
+                                    <!-- Idea Delete-Update Button -->
 
                                     <td>
-                                        <form action="{{ url('idea/'.$idea->id) }}" method="POST">
+                                        <form action="{{ url('idea/'.$idea->id.'/update_status') }}" method="POST">
                                             {{csrf_field()}}
-                                            {{method_field('UPDATE')}}
+                                            {{method_field('POST')}}
 
                                             <button type="submit" id="update-idea-{{ $idea->id }}" class="btn btn-danger" style="background:green !important;">
                                                 <i></i>^ Public
                                             </button>
+                                        </form><br>
 
-
+                                        <form action="{{ url('idea/'.$idea->id) }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
                                             <button type="submit" id="delete-idea-{{ $idea->id }}" class="btn btn-danger">

@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/ideas', 'IdeaController@UpdateStatus')/*middleware(['auth'])*/;
-Route::post('/idea/{id}/{statuses}','IdeaController@UpdateStatus');
+//Route::get('/ideas', 'IdeaController@Update');
+Route::post('/idea/{id}/update_status','IdeaController@Update')/*->middleware(['auth'])*/;
 
 
 Route::get('/ideas', 'IdeaController@index');
