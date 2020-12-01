@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\IdeaRepository;
+//use App\Repositories\IdeaRepository;
 use Resources;
 use App\Idea;
 
 
+use App\User;
+
+use App\Http\Controllers;
 
 
 
@@ -23,10 +26,10 @@ class IdeaController extends Controller
      * @return void
      */
 
-    public function __construct(IdeaRepository $ideas)
+    /*public function __construct(IdeaRepository $ideas)
     {
         $this->ideas = $ideas;
-    }
+    }*/
     /**
      * ����������� ������ ���� ����� ������������.
      *
@@ -45,21 +48,44 @@ class IdeaController extends Controller
         Idea::find($id)->update(['statuses' => 'Public']);
         return redirect('/ideas');
     }
+    /**
+     * Get all of the tasks for a given user.
+     * @param  User  $user
+     * @return Collection
+     */
 
-
-    public function index(Request $request)
+    public function index2(Idea $user_id)
     {
+        $ideas=Idea::where('statuses','=','Public')->get();
         return view('ideas.index', [
-            'ideas' => $this->ideas->forUser($request->user()),
+            'ideas' => $ideas
         ]);
-
+    }
+    public function index(Idea $user_id)
+    {
+        $ideas=Idea::where('user_id','=',$user_id)->get();
+       // $ideas=Idea::all();
+        return view('ideas.index', [
+            'ideas' => $ideas
+        ]);
     }
 
     public function welcome(Request $request)
     {
-        return view('ideas.welcome', [
-            'ideas' => $this->ideas->forQuest($request->status()),
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'mail' => 'required|max:255',
+            'phone' => 'required|max:15',
+            'idea' => 'required|max:1000',
         ]);
+
+//        $request->user()->ideas()->create([
+//            'name' => $request->name,
+//            'mail' => $request->mail,
+//            'phone' => $request->phone,
+//            'idea' => $request->idea,
+//        ]);
+        return redirect('/ideas');
     }
     /**
      * �������� ����� ������.

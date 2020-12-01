@@ -36,5 +36,5 @@ class Idea extends Model
 $user = App\User::find(1);
 
 foreach ($user->ideas as $idea) {
-    //echo $idea->name;
+
 }

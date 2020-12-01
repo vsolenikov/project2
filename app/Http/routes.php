@@ -17,14 +17,14 @@ Route::get('/', function () {
 
 Route::auth();
 
-//Route::get('/ideas', 'IdeaController@Update');
-Route::post('/idea/{id}/update_status','IdeaController@Update')/*->middleware(['auth'])*/;
 
+Route::get('/', 'IdeaController@index2');
+Route::post('//idea/{user_id}', 'IdeaController@store');
 
 Route::get('/ideas', 'IdeaController@index');
-Route::post('/idea', 'IdeaController@store');
+Route::post('/idea/', 'IdeaController@store');
 Route::delete('/idea/{idea}', 'IdeaController@destroy');
-
+Route::post('/idea/{id}/update_status','IdeaController@Update')/*->middleware(['auth'])*/;
 
 // �������� ��������������...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

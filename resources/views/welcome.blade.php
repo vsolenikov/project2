@@ -20,22 +20,22 @@
                             <label for="task" class="col-sm-3 control-label">Your name</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="name" id="task-name" class="form-control" value="{{ old('idea') }}">
+                                <input type="text" name="name" id="task-name" class="form-control" value="">
                             </div>
 <br><br>
 			    <label for="task" class="col-sm-3 control-label">Email</label>
 			    <div class="col-sm-6">
-				<input type="text" name="mail" id="task-mail" class="form-control" value="{{ old('idea') }}">
+				<input type="text" name="mail" id="task-mail" class="form-control" value="">
        		            </div>
 <br><br>
 			    <label for="task" class="col-sm-3 control-label">Telephone</label>
 <div class="col-sm-6">
-   <input type="text" name="phone" id="task-phone" class="form-control" value="{{ old('idea') }}">
+   <input type="text" name="phone" id="task-phone" class="form-control" value="">
 </div>
 <br><br>
 <label for="task" class="col-sm-3 control-label">Your idea</label>
 <div class="col-sm-6">
-	<textarea name="idea" id="task-idea" class="form-control" value="{{ old('idea') }}"></textarea>
+	<textarea name="idea" id="task-idea" class="form-control" value=""></textarea>
 </div>
 </div>
 
@@ -63,9 +63,9 @@
                             <thead>
                             <th>Name</th>
                             <th>Email</th>
-			    <th>Telephone</th>
-			    <th>Idea</th>
-			    <th>Created</th>
+			                <th>Telephone</th>
+			                <th>Idea</th>
+			                <th>Created</th>
 			    
                             </thead>
                             <tbody>
