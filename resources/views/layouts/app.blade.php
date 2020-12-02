@@ -18,6 +18,7 @@
     <style>
         body {
             font-family: 'Lato';
+            background: linear-gradient(to top, lightblue, white, lightblue);
         }
 
         .fa-btn {
@@ -26,7 +27,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default navbar-static-top" style="background: linear-gradient(to top, white, lightblue) !important; ">
         <div class="container">
             <div class="navbar-header">
 

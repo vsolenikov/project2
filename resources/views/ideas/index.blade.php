@@ -53,6 +53,9 @@
 
 
             <!-- Current Ideas -->
+
+
+
             @if (count($ideas) > 0)
                 <div class="panel panel-default" style="width:180% !important; margin-left:-35%;">
                     <div class="panel-heading">
@@ -92,8 +95,8 @@
 						<div>{{ $idea->created_at}}</div>
 					</td>
                                     <!-- Idea Delete-Update Button -->
-
-                                    <td>
+                                    @if($user_id=='1')
+                                       <td>
                                         <form action="{{ url('idea/'.$idea->id.'/update_status') }}" method="POST">
                                             {{csrf_field()}}
                                             {{method_field('POST')}}
@@ -112,6 +115,7 @@
 
                                         </form>
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>

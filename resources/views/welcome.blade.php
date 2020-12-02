@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
+            <div style="margin-left"><img src="/images/phone.jpg"></div>
             <div class="panel panel-default">
                 <div class="panel-heading">Ideas approved by the moderator</div>
 
@@ -17,7 +18,7 @@
 
                                 <!-- Task Name -->
                         <div class="form-group">
-                            <label for="task" class="col-sm-3 control-label">Your name</label>
+                            <label for="task" class="col-sm-3 control-label">Your Name</label>
 
                             <div class="col-sm-6">
                                 <input type="text" name="name" id="task-name" class="form-control" value="">
@@ -105,7 +106,7 @@
 
 
                 <div class="panel-body">
-                    Here you can see a list of all approved ideas.
+                    Here you can see a list of all approved ideass.
                 </div>
             </div>
         </div>
