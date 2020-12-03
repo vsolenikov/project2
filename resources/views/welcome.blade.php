@@ -1,10 +1,14 @@
+
+
 @extends('layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <div style="margin-left"><img src="/images/phone.jpg"></div>
+            <div style="margin-left:-35%"><img src="/images/logos.png"></div> <div style="margin-top: -20%;margin-bottom: 10%;"><text style="font-size: 30px; font-family: Cursive; margin-left:3%; margin-top:-30%"><b>Кайдзен-идеи.
+
+                </text></div>
             <div class="panel panel-default">
                 <div class="panel-heading">Ideas approved by the moderator</div>
 
@@ -67,7 +71,7 @@
 			                <th>Telephone</th>
 			                <th>Idea</th>
 			                <th>Created</th>
-			    
+
                             </thead>
                             <tbody>
                             @foreach ($ideas as $idea)

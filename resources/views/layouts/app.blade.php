@@ -18,7 +18,8 @@
     <style>
         body {
             font-family: 'Lato';
-            background: linear-gradient(to top, lightblue, white, lightblue);
+            /*background: linear-gradient(to top, lightblue, white, lightblue);*/
+            /*background-image: ;*/
         }
 
         .fa-btn {
