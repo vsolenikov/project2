@@ -53,7 +53,7 @@ class IdeaController extends Controller
 
     public function index2(Idea $user_id)
     {
-        $ideas = Idea::where('statuses', '=', 'Public')->get();
+        $ideas = Idea::where('statuses', '=', 'Public')->orderBy('created_at', 'desc')->get();
         return view('welcome', [
             'ideas' => $ideas
         ]);
@@ -73,7 +73,7 @@ class IdeaController extends Controller
                 'user_id' => $user_id
             ]);
         } else {
-            $ideas = Idea::where('user_id', '=', $user_id)->get();
+            $ideas = Idea::where('user_id', '=', $user_id)->orderBy('created_at', 'desc')->get();
 
             // $ideas=Idea::all();
             return view('ideas.index', [
